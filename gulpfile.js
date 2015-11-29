@@ -31,7 +31,7 @@ function runKarma (configFilePath, options, cb) {
     });
 }
 
-gulp.task("dist", function () {
+gulp.task("build", function () {
     return gulp.src("src/app.jsx")
         .pipe(plumber())
         .pipe(sourcemaps.init())
@@ -41,7 +41,7 @@ gulp.task("dist", function () {
         }))
         .pipe(rename("app.js"))
         .pipe(sourcemaps.write("."))
-        .pipe(gulp.dest("dist"));
+        .pipe(gulp.dest("build"));
 });
 
 gulp.task("dev", function () {

@@ -1,5 +1,5 @@
-/dist/app.js.map
-/dist/app.js
+/build/app.js.map
+/build/app.js
 # Logs
 logs
 *.log
