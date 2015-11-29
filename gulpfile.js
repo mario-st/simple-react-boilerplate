@@ -3,10 +3,8 @@ var sourcemaps = require("gulp-sourcemaps");
 var react      = require('gulp-react');
 var babel      = require('gulp-babel');
 var plumber    = require("gulp-plumber");
-var concat     = require("gulp-concat");
 var watch      = require("gulp-watch");
 var rename     = require('gulp-rename');
-var uglify     = require('gulp-uglify');
 
 var browserify = require('gulp-browserify');
 var babelify   = require('babelify');
@@ -19,8 +17,8 @@ function runKarma (configFilePath, options, cb) {
 
     configFilePath = path.resolve(configFilePath);
 
-    var server = karma.server;
     var config = karmaParseConfig(configFilePath, {});
+    var server = new karma.Server(config);
 
     Object.keys(options).forEach(function (key) {
         config[ key ] = options[ key ];

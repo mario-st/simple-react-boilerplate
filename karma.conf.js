@@ -10,12 +10,11 @@ module.exports = function (config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: [ "browserify", "chai", "mocha", "sinon" ],
+        frameworks: [ "browserify", "mocha", "sinon" ],
 
 
         // list of files / patterns to load in the browser
         files: [
-            "node_modules/phantomjs-polyfill/bind-polyfill.js",
             "node_modules/babel-polyfill/dist/polyfill.js",
             "src/**/*.jsx",
             "test/**/*.jsx"
@@ -28,10 +27,8 @@ module.exports = function (config) {
             "karma-chrome-launcher",
             "karma-phantomjs-launcher",
             "karma-babel-preprocessor",
-            "karma-sourcemap-loader",
             "karma-mocha-reporter",
             "karma-coverage",
-            "karma-chai",
             "karma-sinon"
         ],
 
@@ -52,21 +49,6 @@ module.exports = function (config) {
             extensions: [ ".jsx" ],
             debug: true
         },
-
-        //coverageReporter: {
-        //    instrumenters: { 'istanbul-react': require('istanbul-react') },
-        //    instrumenter : {
-        //        '+(src|test)/**/*.jsx' : 'istanbul-react'
-        //    },
-        //
-        //    instrumenterOptions: {
-        //        'istanbul-react': {
-        //            modifyCodeBeforeInstrumentation: function fixChromeBugWithUseStrict (params) {
-        //                return params.code.replace(/(['"]use strict['"];)/g, ';$1');
-        //            }
-        //        }
-        //    }
-        //},
 
         babelPreprocessor: {
             options: {
