@@ -18,13 +18,11 @@ function runKarma (configFilePath, options, cb) {
     configFilePath = path.resolve(configFilePath);
 
     var config = karmaParseConfig(configFilePath, {});
-    var server = new karma.Server(config);
+    var opts = Object.assign({}, config, options || {});
 
-    Object.keys(options).forEach(function (key) {
-        config[ key ] = options[ key ];
-    });
+    var server = new karma.Server(opts);
 
-    server.start(config, function (exitCode) {
+    server.start(function (exitCode) {
         console.log('Karma has exited with ' + exitCode);
         cb();
         process.exit(exitCode);
